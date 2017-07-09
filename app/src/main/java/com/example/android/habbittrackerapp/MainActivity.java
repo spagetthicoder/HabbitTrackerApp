@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void getDatabaseData() {
+    private Cursor getCursorObject() {
         // Create and/or open a database to read from it
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
@@ -63,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
                 null,                  // Don't group the rows
                 null,                  // Don't filter by row groups
                 null);                   // The sort order
+
+        return cursor;
+    }
+
+    private void getDatabaseData() {
+        Cursor cursor = getCursorObject();
 
         try {
             // Figure out the index of each column
